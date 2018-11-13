@@ -8,4 +8,480 @@
     
   </url>
   
+  <url>
+    <loc>http://yoursite.com/2018/11/13/hello/</loc>
+    
+    <lastmod>2018-11-13T07:23:42.165Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/03/Linux/power/wakeup_event/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.318Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/03/Linux/power/%E5%90%AF%E5%8A%A8suspend/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.318Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2018-11-12T06:49:19.318Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/04/Linux/asoc/codec_name/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/08/Linux/asoc/kcontrol_fops/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/08/Linux/asoc/kcontrol%E6%B5%81%E7%A8%8B/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/08/Linux/asoc/snd_soc_write/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/08/Linux/asoc/soc-audio%E6%B3%A8%E5%86%8C/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/10/Linux/asoc/%E5%88%9B%E5%BB%BApcm%E8%AE%BE%E5%A4%87/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/08/Linux/asoc/%E6%B7%BB%E5%8A%A0kcontrol/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/07/Linux/chrdev/Misc/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/07/Linux/chrdev/%E5%88%9B%E5%BB%BA%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/24/Linux/compile/save_config/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/07/Linux/cpufreq/cpufreq_driver/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/07/Linux/cpufreq/cpufreq_governor%E6%A1%86%E6%9E%B6/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/07/Linux/cpufreq/dbs_governor/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/07/Linux/cpufreq/interactive/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/07/Linux/cpufreq/ondemand/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/07/Linux/cpufreq/overview/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/07/Linux/cpufreq/performance/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/05/Linux/flash/nand_base%20API/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/05/Linux/flash/nand_controller/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/05/Linux/flash/nand_device/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/16/Linux/flash/nor_flash%E9%94%99%E4%BD%8D%E8%BF%9E%E6%8E%A5/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/16/Linux/flash/nor_nand%E5%8C%BA%E5%88%AB/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/05/Linux/flash/overview/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/12/Linux/i2c/app/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/06/Linux/i2c/i2c_adapter/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/06/Linux/i2c/i2c_algorithm/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/06/Linux/i2c/i2c_bus_type/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/06/Linux/i2c/i2c_client/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/06/Linux/i2c/i2c_driver/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/06/Linux/i2c/i2c_overview/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/01/30/Linux/input/Input_dev/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/01/30/Linux/input/Input_dev%E5%92%8CInput_handler%E9%93%BE%E6%8E%A5/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/01/30/Linux/input/Input_handler/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/01/30/Linux/input/Input%E5%AD%90%E7%B3%BB%E7%BB%9FOverview/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/16/Linux/input/tiny4412_tp/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/14/Linux/interrupt/%E4%B8%AD%E6%96%AD%E7%9D%A1%E7%9C%A0/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/26/Linux/kernel/kthread/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/04/Linux/nvmem/nvmem%20device/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/04/Linux/nvmem/nvmem%20framework/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/03/Linux/power/autosleep/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/03/Linux/power/overview/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/03/Linux/power/runtime/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/03/Linux/power/suspend%E6%B5%81%E7%A8%8B/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/03/07/Linux/power/suspend%E9%A1%BA%E5%BA%8F/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/03/Linux/power/wakelock/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/03/Linux/power/wakeup_count/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/05/Linux/flash/bbt/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/03/22/Linux/asoc/dapm/complete-path/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/06/05/Linux/asoc/dapm/complete-path%E4%BE%8B%E5%AD%90/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/03/22/Linux/asoc/dapm/overview/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/03/20/Linux/asoc/dapm/widget_route/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/03/23/Linux/asoc/dapm/%E4%B8%A4%E7%B1%BBkcontrol%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/03/22/Linux/asoc/dapm/%E5%90%AF%E5%8A%A8power-check/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/03/22/Linux/asoc/dapm/%E6%B3%A8%E5%86%8Cwidget%E4%B8%AD%E7%9A%84kcontrol/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/06/07/Linux/bus-device-driver/platform/dev_name/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/06/07/Linux/bus-device-driver/platform/match/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/06/08/Linux/bus-device-driver/platform/probe/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/06/07/Linux/bus-device-driver/platform/register_device/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/21/Linux/intel/crl/match/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/21/Linux/intel/crl/old_match_method/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/06/01/Linux/intel/crl/pdata%E5%92%8Cisys%E7%9A%84%E8%81%94%E7%B3%BB%E4%B8%80/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/06/01/Linux/intel/crl/pdata%E5%92%8Cisys%E7%9A%84%E8%81%94%E7%B3%BB%E4%BA%8C/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/06/04/Linux/intel/crl/pdata%E6%B3%A8%E5%86%8Ci2c_client/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/06/04/Linux/intel/crl/power/</loc>
+    
+    <lastmod>2018-11-12T06:49:19.314Z</lastmod>
+    
+  </url>
+  
 </urlset>
