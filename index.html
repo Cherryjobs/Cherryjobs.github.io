@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -79,7 +79,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '6.0.2',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -267,6 +267,193 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/19/Linux/flash/nand_read/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cherryjobs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="你曾是少年">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/19/Linux/flash/nand_read/" itemprop="url">nand读取指定分区的俩种方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-19T15:57:00+08:00">2018-11-19</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Linux/flash/" itemprop="url" rel="index"><span itemprop="name">flash</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/19/Linux/flash/nand_read/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/19/Linux/flash/nand_read/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/11/19/Linux/flash/nand_read/" class="leancloud_visitors" data-flag-title="nand读取指定分区的俩种方式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><ol>
+<li><p>kernel中直接读取具体mtd</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/mtd/mtd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">get_bl</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">mtd_info</span> *<span class="title">mtd</span> = <span class="title">NULL</span>;</span></span><br><span class="line">	<span class="keyword">char</span> buf[<span class="number">8</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">size_t</span> bytes_read = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> err = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">//根据分区名字获取mtd</span></span><br><span class="line">	mtd = get_mtd_device_nm(<span class="string">"res"</span>);</span><br><span class="line">	<span class="keyword">if</span>(IS_ERR(mtd))</span><br><span class="line">		<span class="keyword">return</span> -ENODEV;</span><br><span class="line">	<span class="comment">//读取mtd上,偏移0个字节长度,读取长度,实际读取字节数</span></span><br><span class="line">	err = mtd_read(mtd, <span class="number">0</span>, <span class="keyword">sizeof</span>(buf), &amp;bytes_read, buf);</span><br><span class="line">	<span class="keyword">if</span>(err)</span><br><span class="line">		<span class="keyword">goto</span> err;</span><br><span class="line">	printk(<span class="string">"%s dat[0]:0x%x, dat[1]:0x%x,  dat[2]:0x%x, dat[3]:0x%x\n"</span>,__func__,buf[<span class="number">0</span>],buf[<span class="number">1</span>],buf[<span class="number">2</span>],buf[<span class="number">3</span>]);</span><br><span class="line">	<span class="comment">//关闭</span></span><br><span class="line">	put_mtd_device(mtd);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">err:</span><br><span class="line">	<span class="keyword">return</span> -ENXIO;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在uboot中读取,并传递给kernel</p>
+<ul>
+<li><p>2.1 cmd/Makefile</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj-y += get_lcd_value.o</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.2 cmd/get_lcd_value.c</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;common.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;command.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;image.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">do_get_lcd_value</span><span class="params">(<span class="keyword">cmd_tbl_t</span> *cmdtp, <span class="keyword">int</span> flag, <span class="keyword">int</span> argc, <span class="keyword">char</span> * <span class="keyword">const</span> argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> buf[<span class="number">4</span>];</span><br><span class="line">	<span class="keyword">int</span> uImage_head_addr;</span><br><span class="line">	uImage_head_addr = simple_strtoul(argv[<span class="number">1</span>], <span class="literal">NULL</span>, <span class="number">16</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"agrv[1] addr 0x%x\n"</span>,*(<span class="keyword">int</span> *)uImage_head_addr);</span><br><span class="line">	buf[<span class="number">0</span>] = ((<span class="keyword">char</span> *)uImage_head_addr)[<span class="number">3</span>] &amp; <span class="number">0x0f</span>;</span><br><span class="line">	buf[<span class="number">1</span>] = ((<span class="keyword">char</span> *)uImage_head_addr)[<span class="number">2</span>] &amp; <span class="number">0x0f</span>;</span><br><span class="line">	buf[<span class="number">0</span>] |= (buf[<span class="number">1</span>] &lt;&lt; <span class="number">4</span>);</span><br><span class="line">	buf[<span class="number">2</span>] = ((<span class="keyword">char</span> *)uImage_head_addr)[<span class="number">1</span>] &amp; <span class="number">0x0f</span>;</span><br><span class="line">	buf[<span class="number">3</span>] = ((<span class="keyword">char</span> *)uImage_head_addr)[<span class="number">0</span>] &amp; <span class="number">0x0f</span>;</span><br><span class="line">	buf[<span class="number">1</span>] = (buf[<span class="number">3</span>] &lt;&lt; <span class="number">4</span>) | buf[<span class="number">2</span>];</span><br><span class="line">	setenv_hex(<span class="string">"loadlcdvalue"</span>, *(<span class="keyword">int</span> *)buf);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">U_BOOT_CMD(</span><br><span class="line">get_lcd_value, CONFIG_SYS_MAXARGS, <span class="number">0</span>, do_get_lcd_value,</span><br><span class="line"><span class="string">"Get lcd value !\n"</span>,</span><br><span class="line"><span class="string">"Usage: Get lcd value\n"</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.3 include/configs/mx6dl_xxx_common.h</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CONFIG_EXTRA_ENV_SETTINGS \</span></span><br><span class="line">CONFIG_MFG_ENV_SETTINGS \</span><br><span class="line"><span class="string">"loadsz="</span> KN_PART_SZ <span class="string">"\0"</span> \</span><br><span class="line"><span class="string">"loadlogo=nand read $&#123;loadaddr&#125; "</span> MAIN_LOGO_PART_ADDR <span class="string">" "</span> UBOOT_HEAD_SZ <span class="string">"; get_img_size $&#123;loadaddr&#125;; nand read "</span> LOGO_LOAD_ADDR <span class="string">" "</span> MAIN_LOGO_PART_ADDR <span class="string">" $&#123;loadsz&#125;; "</span> \</span><br><span class="line"><span class="string">"if imxtract "</span> LOGO_LOAD_ADDR <span class="string">" 0 "</span> FB_ADDR <span class="string">"; then "</span> \</span><br><span class="line"><span class="string">"; "</span> \</span><br><span class="line"><span class="string">"else "</span> \</span><br><span class="line"><span class="string">"nand read $&#123;loadaddr&#125; "</span> BAK_LOGO_PART_ADDR <span class="string">" "</span> UBOOT_HEAD_SZ <span class="string">"; get_img_size $&#123;loadaddr&#125;; nand read "</span> LOGO_LOAD_ADDR <span class="string">" "</span> BAK_LOGO_PART_ADDR <span class="string">" $&#123;loadsz&#125;; "</span> \</span><br><span class="line"><span class="string">"nand erase "</span> MAIN_LOGO_PART_ADDR <span class="string">" "</span> UBOOT_HEAD_SZ <span class="string">"; nand write "</span> LOGO_LOAD_ADDR <span class="string">" "</span> MAIN_LOGO_PART_ADDR <span class="string">" $&#123;loadsz&#125;; "</span> \</span><br><span class="line"><span class="string">"imxtract "</span> LOGO_LOAD_ADDR <span class="string">" 0 "</span> FB_ADDR <span class="string">"; "</span> \</span><br><span class="line"><span class="string">"fi\0"</span> \</span><br><span class="line"><span class="string">"rootfs=ubi.mtd="</span> ROOTFS_PART_NUM <span class="string">" root=ubi0:rootfs rootfstype=ubifs\0"</span> \</span><br><span class="line"><span class="comment">//添加testlcd命令	</span></span><br><span class="line"><span class="comment">//从FLAG_PART_ADDR读取长度FLAG_SZ数据,到ram的loadaddr地址;运行get_lcd_value命令</span></span><br><span class="line"><span class="string">"testlcd=nand read $&#123;loadaddr&#125; "</span> FLAG_PART_ADDR <span class="string">" "</span> FLAG_SZ <span class="string">"; get_lcd_value $&#123;loadaddr&#125;; "</span> <span class="string">"\0"</span> \</span><br><span class="line"></span><br><span class="line"><span class="comment">//将lcd_light_value作为bootarg传给kernel</span></span><br><span class="line"><span class="string">"bootargs_set=setenv bootargs console="</span> CONFIG_CONSOLE_DEV <span class="string">","</span> BAUDRATE <span class="string">" $&#123;rootfs&#125; rootwait ro uboot_version="</span> PLAIN_VERSION <span class="string">" maxcpus="</span> USE_CPUS <span class="string">" lpj="</span> DEF_LPJ <span class="string">" loglevel="</span> LOG_LEVEL <span class="string">" "</span> CONFIG_MFG_NAND_PARTITION <span class="string">" lcd_light_value=$&#123;loadlcdvalue&#125; \0"</span> \</span><br><span class="line"><span class="comment">//运行 testlcd</span></span><br><span class="line"><span class="string">"bootcmd=run testlcd; run bootargs_set; run loadlogo; nand read $&#123;loadaddr&#125; "</span> MAIN_KN_PART_ADDR <span class="string">" "</span> UBOOT_HEAD_SZ <span class="string">"; "</span> GET_KERNEL_SIZE <span class="string">" $&#123;loadaddr&#125;; nand read $&#123;loadaddr&#125; "</span> MAIN_KN_PART_ADDR <span class="string">" $&#123;loadsz&#125;;"</span> \</span><br><span class="line"><span class="string">"bootm $&#123;loadaddr&#125;\0"</span> \</span><br><span class="line"><span class="string">"bootcmd_bak=run bootargs_set; run loadlogo; nand read $&#123;loadaddr&#125; "</span> BAK_KN_PART_ADDR <span class="string">" "</span> UBOOT_HEAD_SZ <span class="string">"; "</span> GET_KERNEL_SIZE <span class="string">" $&#123;loadaddr&#125;; nand read $&#123;loadaddr&#125; "</span> BAK_KN_PART_ADDR <span class="string">" $&#123;loadsz&#125;;"</span> \</span><br><span class="line"><span class="string">"bootm $&#123;loadaddr&#125;\0"</span> \</span><br><span class="line"><span class="string">"restore_image=nand read $&#123;loadaddr&#125; "</span> BAK_KN_PART_ADDR <span class="string">" "</span> UBOOT_HEAD_SZ <span class="string">"; "</span> GET_KERNEL_SIZE <span class="string">" $&#123;loadaddr&#125;; nand read $&#123;loadaddr&#125; "</span> BAK_KN_PART_ADDR <span class="string">" $&#123;loadsz&#125;;"</span> \</span><br><span class="line"><span class="string">"nand erase "</span> MAIN_KN_PART_ADDR <span class="string">" "</span> KN_PART_SZ <span class="string">"; nand write $&#123;loadaddr&#125; "</span> MAIN_KN_PART_ADDR <span class="string">" $&#123;loadsz&#125;\0"</span> \</span><br><span class="line"><span class="string">"loadflag=nand read "</span> BOOTFLAG_LOADADDR <span class="string">" "</span> FLAG_PART_ADDR <span class="string">" "</span> FLAG_SZ <span class="string">"\0"</span> \</span><br><span class="line"><span class="string">"minirtfs_set1=setenv rootfs root=/dev/mtdblock"</span> MNRF1_PART_NUM <span class="string">" rootfstype=squashfs\0"</span> \</span><br><span class="line"><span class="string">"minirtfs_set2=setenv rootfs root=/dev/mtdblock"</span> MNRF2_PART_NUM <span class="string">" rootfstype=squashfs\0"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.4 kernel中的修改<br>static unsigned int lcdvalue;<br>static int __init lcdvalue_setup(char *num)<br>{<br>  char buf[32];<br>  strncpy(buf,num,8);<br>  lcdvalue = simple_strtol(num, NULL, 16);<br>  printk(“[TEST] lcdvalue = %s\n”,num);<br>  printk(“[TEST] lcdvalue = %d\n”,lcdvalue);<br>}</p>
+<p>//在bootarg中取出”lcd_light_value=”字串后的数据,并调用lcdvalue_setup函数处理<br>__setup(“lcd_light_value=”, lcdvalue_setup);</p>
+</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/13/你曾是少年/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -359,156 +546,6 @@
         
           
             <p>#details<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">有些时候你怀念从前日子</span><br><span class="line">可天真离开时你却没说一个字</span><br><span class="line">你只是挥一挥手像扔掉废纸</span><br><span class="line">说是人生必经的事</span><br><span class="line">酒喝到七分却又感觉怅然若失</span><br><span class="line">镜子里面像看到人生终点</span><br><span class="line">或许再过上几年</span><br><span class="line">你也有张虚伪的脸</span><br><span class="line">难道我们是为了这样才来到这世上</span><br><span class="line">这问题来不及想</span><br><span class="line">每一天一年总是匆匆忙忙</span><br><span class="line"></span><br><span class="line">你我来自湖北四川广西宁夏河南</span><br><span class="line">山东贵州云南的小镇乡村</span><br><span class="line">曾经发誓要做了不起的人</span><br><span class="line">却在北京上海广州深圳</span><br><span class="line">某天夜半忽然醒来</span><br><span class="line">站在寂寞的阳台</span><br><span class="line">只想从这无边的寂寞中逃出来</span><br><span class="line"></span><br><span class="line">许多年前你有一双清澈的双眼</span><br><span class="line">奔跑起来像是一道春天的闪电</span><br><span class="line">想看遍这世界去最遥远的远方</span><br><span class="line">感觉有双翅膀能飞越高山和海洋</span><br><span class="line">许多年前你曾是个朴素的少年</span><br><span class="line">爱上一个人就不怕付出自己一生</span><br><span class="line">相信爱会永恒</span><br><span class="line">相信每个陌生人</span><br><span class="line">相信你会成为最想成为的人</span><br><span class="line"></span><br><span class="line">习惯说谎就是变得成熟了吗</span><br><span class="line">有一套房子之后才能去爱别人吗</span><br><span class="line">总是以为成功之后就能抚平伤痕</span><br><span class="line">欲望边埋着错过的人</span><br><span class="line">当青春耗尽只剩面目可憎</span><br><span class="line"></span><br><span class="line">你我来自湖北四川广西宁夏</span><br><span class="line">河南山东贵州云南的小镇乡村</span><br><span class="line">曾经发誓要做了不起的人</span><br><span class="line">却在北京上海广州深圳</span><br><span class="line">某天夜半忽然醒来像被命运叫醒了</span><br><span class="line">它说你不能就这样过完一生</span><br><span class="line"></span><br><span class="line">许多年前你有一双清澈的双眼</span><br><span class="line">奔跑起来像是一道春天的闪电</span><br><span class="line">想看遍这世界去最遥远的远方</span><br><span class="line">感觉有双翅膀能飞越高山和海洋</span><br><span class="line">许多年前我曾是个朴素的少年</span><br><span class="line">爱上一个人就不怕付出自己一生</span><br><span class="line">相信爱会永恒</span><br><span class="line">相信每个陌生人</span><br><span class="line">当我和世界初相见</span><br><span class="line">当我曾经是少年</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/13/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cherryjobs">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="你曾是少年">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/13/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-13T15:23:42+08:00">2018-11-13</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/11/13/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/13/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/11/13/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
           
         
